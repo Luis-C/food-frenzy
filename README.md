@@ -1,6 +1,13 @@
 # README
 
-Idea:
+## Authors
+
+Luis Cabrera
+Andre Urcia
+
+## Idea
+
+TBA
 
 ## Angular Dev
 

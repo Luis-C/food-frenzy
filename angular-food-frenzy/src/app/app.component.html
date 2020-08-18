@@ -1,1 +1,26 @@
-<router-outlet></router-outlet>
+<app-header></app-header>
+<mat-sidenav-container class="container">
+  <mat-sidenav mode="side" opened>
+    <ul>
+      <li>
+        <button mat-button routerLink="/auth">
+          <mat-icon>
+            lock
+          </mat-icon>
+          Auth
+        </button>
+      </li>
+      <li>
+        <button mat-button routerLink="/home">
+          <mat-icon>
+            home
+          </mat-icon>
+          Home
+        </button>
+      </li>
+    </ul>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>

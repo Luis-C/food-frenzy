@@ -10,16 +10,17 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(cors());
 // app.use(jwt());
-console.log(__dirname);
-app.use("/", express.static(path.join(__dirname, "/public/dist/Candidates")));
+
+// app.use("/", express.static(path.join(__dirname, "/public/dist/Candidates")));
 
 app.use("/user", require("./routes/user.router"));
-app.use("/stalker", require("./routes/stalker.router"));
+// app.use("/stalker", require("./routes/stalker.router"));
 
 // Fixing error on refresh
-app.get("/*", (req, res) => {
-  res.sendFile(path.join(__dirname, "/public/dist/Candidates/index.html"));
-});
+// app.get("/*", (req, res) => {
+//   res.sendFile(path.join(__dirname, "/public/dist/Candidates/index.html"));
+// });
+
 app.use(errorHandler);
 
 // start server

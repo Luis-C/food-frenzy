@@ -2,8 +2,7 @@
 
 ## Authors
 
-Luis Cabrera
-Andre Urcia
+Luis Cabrera Andre Urcia
 
 ## Idea
 
@@ -14,6 +13,8 @@ TBA
 To start running the Angular Front End (only)
 
 ```
+cd angular-food-frenzy
+
 ng s -o
 ```
 
@@ -24,7 +25,7 @@ To initialize server:
 ```
 cd food-frenzy
 
-node index.js
+node app.js
 ```
 
 ## Tasks

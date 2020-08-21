@@ -30,7 +30,7 @@ function getAllUsers(req, res, next) {
 }
 
 function register(req, res, next) {
-  console.log("registering user!");
+  console.log("registering user");
   userService
     .addUser(req.body)
     .then(() => res.json({}))

@@ -2,14 +2,13 @@ const config = require("../config.json");
 const jwt = require("jsonwebtoken");
 // const SimulatedDB = require("../_helpers/dbsimulator");
 const db = require("../_helpers/database");
+const User = db.User;
 
 module.exports = {
   authenticate,
   getAllUsers,
   getByUsername,
   addUser,
-  setGoals,
-  getGoals,
 };
 
 async function authenticate({ username, password }) {
@@ -50,27 +49,4 @@ async function addUser(userParam) {
 
   // save user
   await user.save();
-}
-
-// TODO: (DONE) complete this function. It takes in calories and minute goal values in
-// 'values' and saves it for a given userid (_id). Hint: use 'updateOne' from mongoose.
-async function setGoals(values, userid) {
-  await User.updateOne(
-    {
-      _id: userid,
-    },
-    {
-      caloriegoal: values.calories,
-      minutegoal: values.minutes,
-    }
-  );
-}
-
-// TODO: (DONE) complete this function. It should return calorie and minute goals for a given user.
-async function getGoals(username) {
-  user = await getByUsername(username);
-  return {
-    caloriegoal: user[0].caloriegoal,
-    minutegoal: user[0].minutegoal,
-  };
 }

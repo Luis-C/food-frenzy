@@ -1,44 +1,69 @@
 <h1>My Profile</h1>
 
-<label for='friend_code'>Friend Code:</label>
-<input name='friend_code' value="get user id through hash=friend code" disabled>
+<mat-form-field>
+  <mat-label for="friend_code">Friend Code:</mat-label>
+  <input
+    matInput
+    name="friend_code"
+    value="get user id through hash=friend code"
+    disabled
+  />
+</mat-form-field>
 
-<label for='bump_link'>Bump Link</label>
-<input name='bump_link' value="foodfrenzy.get code to associate with user bump" disabled>
-<button id='change_bump_link'>Change Link</button>
+<mat-form-field>
+  <mat-label for="bump_link">Bump Link</mat-label>
+  <input
+    matInput
+    name="bump_link"
+    value="foodfrenzy.get code to associate with user bump"
+    disabled
+  />
+</mat-form-field>
 
-<label for='buy_link'>Buy Link</label>
-<input name='buy_link' value="foodfrenzy.get code to associate with user buy" disabled>
-<button id='change_buy_link'>Change Link</button>
+<button mat-button id="change_bump_link">Change Link</button>
 
-<label for='nobump'>Disable Bumping</label>
-<input type="checkbox" name="nobump">
+<mat-form-field>
+  <mat-label for="buy_link">Buy Link</mat-label>
+  <input
+    matInput
+    name="buy_link"
+    value="foodfrenzy.get code to associate with user buy"
+    disabled
+  />
+</mat-form-field>
 
-<label for='nobump'>Disable Buying</label>
-<input type="checkbox" name="nobuy">
+<button mat-button id="change_buy_link">Change Link</button>
 
-<input name='address' placeholder="Delivery Address">
-<input name='city' placeholder="City">
-<input name='state' placeholder="State">
-<input name='zipcode' placeholder="Zipcode">
-<input name='contact' placeholder="Email Address or Phone Number">
+<mat-label for="nobump">Disable Bumping</mat-label>
+<input type="checkbox" name="nobump" />
 
-<input name='allergies' placeholder="Allergies/Preferences">
+<mat-label for="nobump">Disable Buying</mat-label>
+<input type="checkbox" name="nobuy" />
 
-<label for='bump_limit'>Bump limit: $</label><input name='bump_limit' placeholder="$$">
-<label for='bump_period'>per</label>
+<input name="address" placeholder="Delivery Address" />
+<input name="city" placeholder="City" />
+<input name="state" placeholder="State" />
+<input name="zipcode" placeholder="Zipcode" />
+<input name="contact" placeholder="Email Address or Phone Number" />
+
+<input name="allergies" placeholder="Allergies/Preferences" />
+
+<mat-label for="bump_limit">Bump limit: $</mat-label
+><input name="bump_limit" placeholder="$$" />
+<mat-label for="bump_period">per</mat-label>
 <select name="bump_period">
-    <option value="day" selected="selected">Day</option>
-    <option value="week">Week</option>
-    <option value="month">Month</option>
-    <option value="year">Year</option>
+  <option value="day" selected="selected">Day</option>
+  <option value="week">Week</option>
+  <option value="month">Month</option>
+  <option value="year">Year</option>
 </select>
 
-<label for='buy_limit'>Buy limit: $</label><input name='buy_limit' placeholder="$$">
-<label for='buy_period'>per</label>
+<mat-label for="buy_limit">Buy limit: $</mat-label
+><input name="buy_limit" placeholder="$$" />
+<mat-label for="buy_period">per</mat-label>
 <select name="buy_period">
-    <option value="day">Day</option>
-    <option value="week">Week</option>
-    <option value="month">Month</option>
-    <option value="year">Year</option>
+  <option value="day">Day</option>
+  <option value="week">Week</option>
+  <option value="month">Month</option>
+  <option value="year">Year</option>
 </select>

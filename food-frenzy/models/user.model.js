@@ -6,6 +6,7 @@ const schema = new Schema({
   hash: { type: String, required: true },
   firstName: { type: String, required: false },
   lastName: { type: String, required: false },
+
   bumpable: { type: Boolean, required: true },
   address: { type: String, required: true },
   city: { type: String, required: true },
@@ -18,6 +19,10 @@ const schema = new Schema({
   buyable: { type: Boolean, required: true },
   buy_limit: { type: Number, required: false },
   buy_period: { type: String, required: false },
+
+  friends : { type: String[], required: false },
+  requests : { type: String, required: false },
+  history : { type: JSON, required: false },
 });
 
 schema.set("toJSON", { virtuals: true });

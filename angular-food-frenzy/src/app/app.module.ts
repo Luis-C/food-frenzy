@@ -10,7 +10,6 @@ import { HomeComponent } from './pages/Home/home.component';
 import { AuthComponent } from './pages/Auth/auth.component';
 import { HistoryComponent } from './pages/Home/components/history/history.component';
 import { ProfileComponent } from './pages/Home/components/profile/profile.component';
-import { FeedComponent } from './pages/Home/components/feed/feed.component';
 import { FriendsComponent } from './pages/Home/components/friends/friends.component';
 import { RequestsComponent } from './pages/Home/components/requests/requests.component';
 import { SignInComponent } from './pages/Auth/components/sign-in/sign-in.component';
@@ -23,7 +22,6 @@ import { SignUpComponent } from './pages/Auth/components/sign-up/sign-up.compone
     AuthComponent,
     HistoryComponent,
     ProfileComponent,
-    FeedComponent,
     FriendsComponent,
     RequestsComponent,
     SignInComponent,

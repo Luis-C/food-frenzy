@@ -1,0 +1,64 @@
+<mat-card>
+    <mat-card-title>{{friend_username}}'s Profile</mat-card-title>
+  
+    <mat-form-field>
+      <mat-label for="allergies">{{friend_username}}'s Allergies/Preferences:</mat-label>
+      <input
+        matInput
+        name="allergies"
+        value={{friend_allergies}}
+        disabled
+      />
+    </mat-form-field>
+
+    <!-- Add toggle between bump and buy -->
+
+    <mat-form-field>
+        <mat-label for="address">{{friend_username}}'s Delivery Address:</mat-label>
+        <input
+          matInput
+          name="address"
+          value={{friend_address}}
+          disabled
+        />
+      </mat-form-field>
+      
+    <mat-form-field>
+        <mat-label for="address">Bump dollars left for this {{bump_period}}:</mat-label>
+        <input
+          matInput
+          name="address"
+          value={{bump_dollars}}
+          disabled
+        />
+      </mat-form-field>
+
+    <mat-form-field>
+        <mat-label for="address">Buy dollars left for this {{buy_period}}:</mat-label>
+        <input
+          matInput
+          name="address"
+          value={{buy_dollars}}
+          disabled
+        />
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label for="items">Food Item(s):</mat-label>
+        <input
+          matInput
+          name="items"
+        />
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label for="cost">Cost ($):</mat-label>
+        <input
+          matInput
+          name="cost"
+        />
+      </mat-form-field>
+
+      <button>Bump {{friend_username}}</button>
+      <button>Buy for {{friend_username}}</button>
+</mat-card>

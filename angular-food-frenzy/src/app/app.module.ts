@@ -14,6 +14,7 @@ import { FriendsComponent } from './pages/Home/components/friends/friends.compon
 import { RequestsComponent } from './pages/Home/components/requests/requests.component';
 import { SignInComponent } from './pages/Auth/components/sign-in/sign-in.component';
 import { SignUpComponent } from './pages/Auth/components/sign-up/sign-up.component';
+import { FriendComponent } from './pages/friend/friend.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { SignUpComponent } from './pages/Auth/components/sign-up/sign-up.compone
     RequestsComponent,
     SignInComponent,
     SignUpComponent,
+    FriendComponent,
   ],
   imports: [
     ReactiveFormsModule,

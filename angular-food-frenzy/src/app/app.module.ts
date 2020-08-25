@@ -15,6 +15,9 @@ import { RequestsComponent } from './pages/Home/components/requests/requests.com
 import { SignInComponent } from './pages/Auth/components/sign-in/sign-in.component';
 import { SignUpComponent } from './pages/Auth/components/sign-up/sign-up.component';
 import { FriendComponent } from './pages/friend/friend.component';
+import { ErrorInterceptor } from './core/interceptors/error.interceptor';
+import { JwtInterceptor } from './core/interceptors/jwt.interceptor';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -35,8 +38,12 @@ import { FriendComponent } from './pages/friend/friend.component';
     AppRoutingModule,
     BrowserAnimationsModule,
     SharedModule,
+    HttpClientModule,
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

@@ -7,6 +7,7 @@ import {
   Validators,
   FormControl,
 } from '@angular/forms';
+import { AuthService } from 'src/app/core/services/auth.service';
 
 @Component({
   selector: 'app-sign-in',
@@ -16,7 +17,11 @@ import {
 export class SignInComponent implements OnInit {
   form: FormGroup;
 
-  constructor(private notif: NotificationsService, private fb: FormBuilder) {
+  constructor(
+    private notif: NotificationsService,
+    private fb: FormBuilder,
+    private auth: AuthService
+  ) {
     this.form = fb.group({
       username: ['', Validators.required],
       password: ['', Validators.required],
@@ -25,11 +30,15 @@ export class SignInComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  signIn() {
-    console.log(this.form.value); // debug
+  async signIn() {
+    if (!this.form.valid) return;
 
-    console.log('valid:', this.form.valid);
+    let formData = this.form.value;
 
-    this.notif.showNotif('Not Implemented');
+    let resp = await this.auth
+      .signIn(formData.username, formData.password)
+      .toPromise();
+
+    resp ? this.notif.showNotif('Welcome!') : this.notif.showNotif('ERROR');
   }
 }

@@ -47,6 +47,6 @@ export class AuthService {
   }
 
   signUp(user) {
-    return this.http.post(`${this.PATH}/user/register`, user);
+    return this.http.post(`${this.PATH}user/register`, user);
   }
 }

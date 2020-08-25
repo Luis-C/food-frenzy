@@ -23,6 +23,8 @@ export class User {
   friends?: string[];
   requests?: string[];
   history?: JSON;
+
+  token?: string;
 }
 
 // const schema = new Schema({

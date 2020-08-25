@@ -13,12 +13,13 @@ const schema = new Schema({
   state: { type: String, required: true },
   zipcode: { type: String, required: true },
   contact: { type: String, required: false },
-  allergies: [{ type: String, required: false }],
+
   bump_limit: { type: Number, required: false },
   bump_period: { type: String, required: false },
   buyable: { type: Boolean, required: true },
   buy_limit: { type: Number, required: false },
   buy_period: { type: String, required: false },
+  allergies: [{ type: String, required: false }],
 
   // NOTE: For scalability purposes these shoul be their own collections
   // However to keep things simple they're not.

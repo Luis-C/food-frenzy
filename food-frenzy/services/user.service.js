@@ -1,5 +1,6 @@
 const config = require("../config.json");
 const jwt = require("jsonwebtoken");
+const bcrypt = require("bcryptjs");
 // const SimulatedDB = require("../_helpers/dbsimulator");
 const db = require("../_helpers/database");
 const User = db.User;
@@ -33,6 +34,8 @@ async function getByUsername(username) {
 }
 
 async function addUser(userParam) {
+  console.log(userParam);
+
   // validate
   if (await User.findOne({ username: userParam.username })) {
     throw 'Username "' + userParam.username + '" is already taken';
@@ -46,6 +49,8 @@ async function addUser(userParam) {
   if (userParam.password) {
     user.hash = bcrypt.hashSync(userParam.password, 10);
   }
+
+  console.log(user);
 
   // save user
   await user.save();

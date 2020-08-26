@@ -30,7 +30,7 @@ async function getAllUsers() {
 }
 
 async function getByUsername(username) {
-  return await User.find({ username: username });
+  return await User.find({ username: username }).select("-hash");
 }
 
 async function addUser(userParam) {

@@ -7,6 +7,7 @@ module.exports = {
   getAllUsers,
   register,
   update,
+  getUser,
 };
 
 function authenticate(req, res, next) {
@@ -36,11 +37,19 @@ function register(req, res, next) {
     .then(() => res.json({}))
     .catch((err) => next(err));
 }
+
 function update(req, res, next) {
   console.log("updating a user");
   console.log(req.body);
   userService
     .update(req.body)
     .then(() => res.json({}))
+    .catch((err) => next(err));
+}
+
+function getUser(req, res, next) {
+  userService
+    .getByUsername(req.params.username)
+    .then((user) => res.json(user))
     .catch((err) => next(err));
 }

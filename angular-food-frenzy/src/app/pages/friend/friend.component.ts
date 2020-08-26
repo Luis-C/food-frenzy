@@ -12,6 +12,7 @@ export class FriendComponent implements OnInit {
   friend_allergies = 'corn, water';
   friend_address = 'street street';
   bump = false;
+  buy = false;
   bump_period = 'Week'
   bump_dollars = '$'+20;
   buy_period = 'Month'

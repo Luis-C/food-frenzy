@@ -78,7 +78,7 @@
     <mat-form-field>
       <input matInput name="allergy_severity" placeholder="Add Severity of Allergy or Preference" />
     </mat-form-field>
-    <button mat-button id="add_allergy">Add</button>
+    <button mat-button (click)="onAddRow()"  id="add_allergy">Add</button>
 
     <!-------TESTING TABLE---------------------------------------------->
 
@@ -102,7 +102,7 @@
       <!-- Delete Button Column -->
       <ng-container matColumnDef="delete">
         <th mat-header-cell *matHeaderCellDef> Delete </th>
-        <td mat-cell *matCellDef="let element"> <button class="btn btn-default"  type="button">Delete</button> </td>
+        <td mat-cell *matCellDef="let element"> <button mat-button class="btn btn-default"  type="button">Delete</button> </td>
       </ng-container>
     
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

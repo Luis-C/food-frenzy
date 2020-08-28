@@ -1,73 +1,84 @@
-<mat-card>
+<!-- ONLY show card if there is a Current User to prevent errors -->
+<mat-card *ngIf="currentUser | async as user">
   <mat-card-title>My Profile</mat-card-title>
 
+  <!-- For Debugging purposes -->
+  <p>{{ user | json }}</p>
+
+  <form [formGroup]="form">
+    <div class="form-grouping">
+      <mat-form-field>
+        <mat-label for="friend_code">Friend Code:</mat-label>
+        <input
+          matInput
+          name="friend_code"
+          value="get user id through hash=friend code"
+          disabled
+        />
+      </mat-form-field>
+    </div>
+
+    <div class="form-grouping">
+      <mat-form-field>
+        <mat-label for="bump_link">Bump Link</mat-label>
+        <input
+          matInput
+          name="bump_link"
+          value="foodfrenzy.get code to associate with user bump"
+          disabled
+        />
+      </mat-form-field>
+
+      <button mat-button id="change_bump_link">Change Link</button>
+    </div>
+
+    <div class="form-grouping">
+      <mat-form-field>
+        <mat-label for="buy_link">Buy Link</mat-label>
+        <input
+          matInput
+          name="buy_link"
+          value="foodfrenzy.get code to associate with user buy"
+          disabled
+        />
+      </mat-form-field>
+
+      <button mat-button id="change_buy_link">Change Link</button>
+    </div>
+
+    <div class="form-grouping">
+      <mat-checkbox formControlName="bumpable">Bumpable</mat-checkbox>
+
+      <mat-checkbox formControlName="bumpable">Buyable</mat-checkbox>
+    </div>
+
+    <div class="form-grouping">
+      <mat-form-field>
+        <input
+          matInput
+          formControlName="address"
+          placeholder="Delivery Address"
+        />
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput formControlName="city" placeholder="City" />
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput formControlName="state" placeholder="State" />
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput formControlName="zipcode" placeholder="Zipcode" />
+      </mat-form-field>
+    </div>
+  </form>
+
   <div class="form-grouping">
     <mat-form-field>
-      <mat-label for="friend_code">Friend Code:</mat-label>
       <input
         matInput
-        name="friend_code"
-        value="get user id through hash=friend code"
-        disabled
+        name="contact"
+        placeholder="Email Address or Phone Number"
       />
-    </mat-form-field>
-  </div>
-
-  <div class="form-grouping">
-    <mat-form-field>
-      <mat-label for="bump_link">Bump Link</mat-label>
-      <input
-        matInput
-        name="bump_link"
-        value="foodfrenzy.get code to associate with user bump"
-        disabled
-      />
-    </mat-form-field>
-
-    <button mat-button id="change_bump_link">Change Link</button>
-  </div>
-
-  <div class="form-grouping">
-    <mat-form-field>
-      <mat-label for="buy_link">Buy Link</mat-label>
-      <input
-        matInput
-        name="buy_link"
-        value="foodfrenzy.get code to associate with user buy"
-        disabled
-      />
-    </mat-form-field>
-
-    <button mat-button id="change_buy_link">Change Link</button>
-  </div>
-
-
-  <div class="form-grouping">
-    <mat-label for="nobump">Disable Bumping</mat-label>
-    <input type="checkbox" name="nobump" />
-
-    <mat-label for="nobump">Disable Buying</mat-label>
-    <input type="checkbox" name="nobuy" />
-  </div>
-
-  <div class="form-grouping">
-    <mat-form-field>
-      <input matInput name="address" placeholder="Delivery Address" />
-    </mat-form-field>
-    <mat-form-field>
-      <input matInput name="city" placeholder="City" />
-    </mat-form-field>
-    <mat-form-field>
-      <input matInput name="state" placeholder="State" />
-    </mat-form-field>
-    <mat-form-field>
-      <input matInput name="zipcode" placeholder="Zipcode" />
-    </mat-form-field>
-  </div>
-
-  <div class="form-grouping">
-    <mat-form-field>
-      <input matInput name="contact" placeholder="Email Address or Phone Number" />
     </mat-form-field>
   </div>
 
@@ -76,41 +87,47 @@
       <input matInput name="allergy" placeholder="Add Allergy or Preference" />
     </mat-form-field>
     <mat-form-field>
-      <input matInput name="allergy_severity" placeholder="Add Severity of Allergy or Preference" />
+      <input
+        matInput
+        name="allergy_severity"
+        placeholder="Add Severity of Allergy or Preference"
+      />
     </mat-form-field>
-    <button mat-button (click)="onAddRow()"  id="add_allergy">Add</button>
+    <button mat-button (click)="onAddRow()" id="add_allergy">Add</button>
 
     <!-------TESTING TABLE---------------------------------------------->
 
     <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
-
       <!--- Note that these columns can be defined in any order.
             The actual rendered columns are set as a property on the row definition" -->
-    
+
       <!-- Name Column -->
       <ng-container matColumnDef="name">
-        <th mat-header-cell *matHeaderCellDef> Name </th>
-        <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+        <th mat-header-cell *matHeaderCellDef>Name</th>
+        <td mat-cell *matCellDef="let element">{{ element.name }}</td>
       </ng-container>
-    
+
       <!-- Severity Column -->
       <ng-container matColumnDef="severity">
-        <th mat-header-cell *matHeaderCellDef> Severity </th>
-        <td mat-cell *matCellDef="let element"> {{element.severity}} </td>
+        <th mat-header-cell *matHeaderCellDef>Severity</th>
+        <td mat-cell *matCellDef="let element">{{ element.severity }}</td>
       </ng-container>
-    
+
       <!-- Delete Button Column -->
       <ng-container matColumnDef="delete">
-        <th mat-header-cell *matHeaderCellDef> Delete </th>
-        <td mat-cell *matCellDef="let element"> <button mat-button class="btn btn-default"  type="button">Delete</button> </td>
+        <th mat-header-cell *matHeaderCellDef>Delete</th>
+        <td mat-cell *matCellDef="let element">
+          <button mat-button class="btn btn-default" type="button">
+            Delete
+          </button>
+        </td>
       </ng-container>
-    
+
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
     </table>
 
     <!------------TABLE TESTING END-->
-
   </div>
 
   <div class="form-grouping">

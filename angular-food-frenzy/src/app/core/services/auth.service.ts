@@ -49,4 +49,14 @@ export class AuthService {
   signUp(user) {
     return this.http.post(`${this.PATH}user/register`, user);
   }
+
+  logout() {
+    // remove user from local storage to log user out
+    localStorage.removeItem('currentUser');
+    // notify all subscribers that user has logged out.
+    this.currentUserSubject.next(undefined);
+  }
+
+  // TODO: on update get new user and update observable
+  update() {}
 }

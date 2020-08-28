@@ -1,3 +1,6 @@
 <p>auth works!</p>
-<app-sign-in></app-sign-in>
-<app-sign-up></app-sign-up>
+
+<div *ngIf="!(currentUser | async)">
+  <app-sign-in></app-sign-in>
+  <app-sign-up></app-sign-up>
+</div>

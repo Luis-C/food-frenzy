@@ -10,6 +10,7 @@ module.exports = {
   getAllUsers,
   getByUsername,
   addUser,
+  update,
 };
 
 async function authenticate({ username, password }) {
@@ -54,4 +55,44 @@ async function addUser(userParam) {
 
   // save user
   await user.save();
+}
+
+/**
+ * Update a user.
+ * Note all fields are being updated
+ * @param {User} userParam - User to be updated with new fields
+ */
+async function update(userParam) {
+  console.log("trying to update skill. Request body: ", userParam);
+  // TODO: validate ?
+
+  if (!(await User.findOne({ username: userParam.username }))) {
+    throw 'Username "' + userParam.username + '" does not exist';
+  }
+
+  User.updateOne(
+    // find by unique username
+    { username: userParam.username },
+    {
+      // modify following fields
+      bumpable: userParam.bumpable,
+      bump_limit: userParam.bump_limit,
+      bump_period: userParam.bump_period,
+      buyable: userParam.buyable,
+      buy_limit: userParam.buy_limit,
+      buy_period: userParam.buy_period,
+      allergies: userParam.allergies,
+      friends: userParam.friends,
+      requests: userParam.requests,
+      history: userParam.history,
+    },
+    (err, affected, resp) => {
+      if (err) console.log(err);
+      else {
+        // NOTE: might want to do something here
+        console.log("response: ", resp);
+        console.log("Affected: ", affected);
+      }
+    }
+  );
 }

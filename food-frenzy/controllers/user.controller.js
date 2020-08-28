@@ -50,6 +50,6 @@ function update(req, res, next) {
 function getUser(req, res, next) {
   userService
     .getByUsername(req.params.username)
-    .then((user) => res.json(user))
+    .then((user) => res.json(user[0]))
     .catch((err) => next(err));
 }

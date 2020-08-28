@@ -7,13 +7,12 @@ const schema = new Schema({
   firstName: { type: String, required: false },
   lastName: { type: String, required: false },
 
-  bumpable: { type: Boolean, required: true },
   address: { type: String, required: true },
   city: { type: String, required: true },
   state: { type: String, required: true },
   zipcode: { type: String, required: true },
   contact: { type: String, required: false },
-
+  bumpable: { type: Boolean, required: true },
   bump_limit: { type: Number, required: false },
   bump_period: { type: String, required: false },
   buyable: { type: Boolean, required: true },

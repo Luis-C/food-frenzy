@@ -75,6 +75,15 @@ async function update(userParam) {
     { username: userParam.username },
     {
       // modify following fields
+      firstName: userParam.firstName,
+      lastName: userParam.lastName,
+
+      address: userParam.address,
+      city: userParam.city,
+      state: userParam.state,
+      zipcode: userParam.zipcode,
+      contact: userParam.contact,
+
       bumpable: userParam.bumpable,
       bump_limit: userParam.bump_limit,
       bump_period: userParam.bump_period,

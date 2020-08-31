@@ -12,7 +12,7 @@ export class User {
   // Optional parameters have ? in Typescript and go at the end of the object
   // definition
   contact?: string;
-  allergies?: string;
+  allergies?: { name: string; severity: string }[];
   bump_limit?: number;
   bump_period?: string;
   buy_period?: string;

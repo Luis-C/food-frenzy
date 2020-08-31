@@ -1,32 +1,24 @@
 <app-header></app-header>
 <mat-sidenav-container class="container">
   <mat-sidenav mode="side" opened>
-    <ul>
-      <li>
-        <button mat-button routerLink="/auth">
-          <mat-icon>
-            lock
-          </mat-icon>
-          Auth
-        </button>
-      </li>
-      <li>
-        <button mat-button routerLink="/home">
-          <mat-icon>
-            home
-          </mat-icon>
-          Home
-        </button>
-      </li>
-      <li>
-        <button mat-button routerLink="/friend">
-          <mat-icon>
-            home
-          </mat-icon>
-          Friend
-        </button>
-      </li>
-    </ul>
+    <div>
+      <button mat-button routerLink="/auth">
+        <mat-icon> lock </mat-icon>
+        Auth
+      </button>
+    </div>
+    <div>
+      <button mat-button routerLink="/home">
+        <mat-icon> home </mat-icon>
+        Home
+      </button>
+    </div>
+    <div>
+      <button mat-button routerLink="/friend">
+        <mat-icon> face </mat-icon>
+        Friend
+      </button>
+    </div>
   </mat-sidenav>
   <mat-sidenav-content>
     <router-outlet></router-outlet>

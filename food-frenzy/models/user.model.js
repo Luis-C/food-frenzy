@@ -13,12 +13,12 @@ const schema = new Schema({
   zipcode: { type: String, required: true },
   contact: { type: String, required: false },
 
-  bumpable: { type: Boolean, required: true },
-  bump_limit: { type: Number, required: false },
-  bump_period: { type: String, required: false },
-  buyable: { type: Boolean, required: true },
-  buy_limit: { type: Number, required: false },
-  buy_period: { type: String, required: false },
+  bumpable: { type: Boolean, required: true, default: false },
+  bump_limit: { type: Number, required: false, default: 0 },
+  bump_period: { type: String, required: false, default: "Day" },
+  buyable: { type: Boolean, required: true, default: false },
+  buy_limit: { type: Number, required: false, default: 0 },
+  buy_period: { type: String, required: false, default: "Day" },
   allergies: [
     {
       name: String,

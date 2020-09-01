@@ -13,8 +13,11 @@ export class User {
   // definition
   contact?: string;
   allergies?: { name: string; severity: string }[];
+
   bump_limit?: number;
   bump_period?: string;
+
+  buy_limit?: number;
   buy_period?: string;
 
   firstName?: string;

@@ -39,6 +39,8 @@ export class SignUpComponent implements OnInit {
 
     let formData = this.form.value;
 
+    console.log(formData);
+
     if (formData.password != formData.passwordVal) {
       this.notif.showNotif('Password Mismatch');
       return;

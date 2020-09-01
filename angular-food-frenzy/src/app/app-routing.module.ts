@@ -7,7 +7,7 @@ import { FriendComponent } from './pages/friend/friend.component';
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'auth', component: AuthComponent },
-  { path: 'friend', component: FriendComponent },
+  { path: 'friend/:username', component: FriendComponent },
   { path: '**', redirectTo: 'home' },
 ];
 

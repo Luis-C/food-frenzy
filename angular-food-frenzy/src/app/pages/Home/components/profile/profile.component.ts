@@ -52,6 +52,8 @@ export class ProfileComponent implements OnInit {
           zipcode: [user.zipcode, Validators.required],
           bumpable: [user.bumpable],
           buyable: [user.buyable],
+          bump: [user.bump_limit],
+          buy: [user.buy_limit],
         });
       }
     });

@@ -1,49 +1,60 @@
-<mat-card *ngIf="friend | async as friend">
-  <!-- Debugging -->
-  <!-- <p>{{ friend | json }}</p> -->
+<div class="container">
+  <mat-card *ngIf="friend | async as friend">
+    <!-- Debugging -->
+    <!-- <p>{{ friend | json }}</p> -->
 
-  <mat-card-title>{{ friend.username }}'s Profile</mat-card-title>
+    <mat-card-title>{{ friend.username }}'s Profile</mat-card-title>
 
-  <mat-form-field>
-    <mat-label for="allergies"
-      >{{ friend.username }}'s Allergies/Preferences:</mat-label
-    >
-    <input matInput name="allergies" value="{{ friend_allergies }}" disabled />
-  </mat-form-field>
+    <mat-card-content>
+      <mat-form-field>
+        <mat-label for="allergies"
+          >{{ friend.username }}'s Allergies/Preferences:</mat-label
+        >
+        <input
+          matInput
+          name="allergies"
+          value="{{ friend_allergies }}"
+          disabled
+        />
+      </mat-form-field>
 
-  <!-- Add toggle between bump and buy -->
+      <!-- Add toggle between bump and buy -->
 
-  <mat-form-field>
-    <mat-label for="address"
-      >{{ friend.username }}'s Delivery Address:</mat-label
-    >
-    <input matInput name="address" value="{{ friend.address }}" disabled />
-  </mat-form-field>
+      <mat-form-field>
+        <mat-label for="address"
+          >{{ friend.username }}'s Delivery Address:</mat-label
+        >
+        <input matInput name="address" value="{{ friend.address }}" disabled />
+      </mat-form-field>
 
-  <mat-form-field>
-    <mat-label for="address"
-      >Bump dollars left for this {{ bump_period }}:</mat-label
-    >
-    <input matInput name="address" [value]="friend.bump_limit" disabled />
-  </mat-form-field>
+      <mat-form-field>
+        <mat-label for="address"
+          >Bump dollars left for this {{ bump_period }}:</mat-label
+        >
+        <input matInput name="address" [value]="friend.bump_limit" disabled />
+      </mat-form-field>
 
-  <mat-form-field>
-    <mat-label for="address"
-      >Buy dollars left for this {{ buy_period }}:</mat-label
-    >
-    <input matInput name="address" [value]="friend.buy_limit" disabled />
-  </mat-form-field>
+      <mat-form-field>
+        <mat-label for="address"
+          >Buy dollars left for this {{ buy_period }}:</mat-label
+        >
+        <input matInput name="address" [value]="friend.buy_limit" disabled />
+      </mat-form-field>
 
-  <mat-form-field>
-    <mat-label for="items">Food Item(s):</mat-label>
-    <input matInput name="items" />
-  </mat-form-field>
+      <mat-form-field>
+        <mat-label for="items">Food Item(s):</mat-label>
+        <input matInput name="items" />
+      </mat-form-field>
 
-  <mat-form-field>
-    <mat-label for="cost">Cost ($):</mat-label>
-    <input matInput name="cost" />
-  </mat-form-field>
+      <mat-form-field>
+        <mat-label for="cost">Cost ($):</mat-label>
+        <input matInput name="cost" />
+      </mat-form-field>
+    </mat-card-content>
 
-  <button mat-button>Bump {{ friend.username }}</button>
-  <button mat-button>Buy for {{ friend.username }}</button>
-</mat-card>
+    <mat-card-actions>
+      <button mat-button>Bump {{ friend.username }}</button>
+      <button mat-button>Buy for {{ friend.username }}</button>
+    </mat-card-actions>
+  </mat-card>
+</div>

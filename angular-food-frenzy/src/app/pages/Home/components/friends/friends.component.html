@@ -1,7 +1,7 @@
-<p>friends works!</p>
+<p>Friends:</p>
 
-<div *ngIf="currentUser | async as user">
-  <mat-card *ngFor="let friend of user.friends">
+<div *ngIf="currentUser | async as user" class="friend-card__container">
+  <mat-card *ngFor="let friend of user.friends" class="friend-card">
     <mat-card-title> {{ friend }} </mat-card-title>
     <button mat-button [routerLink]="'/friend/' + friend">VIEW</button>
   </mat-card>

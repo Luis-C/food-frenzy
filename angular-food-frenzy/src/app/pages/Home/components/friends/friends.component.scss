@@ -1,0 +1,11 @@
+.friend-card {
+  width: 300px;
+
+  margin: 10px 10px 10px 0px;
+
+  &__container {
+    display: flex;
+    flex-flow: row;
+    flex-wrap: wrap;
+  }
+}

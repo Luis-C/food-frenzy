@@ -6,7 +6,7 @@
   <!-- <p>{{ user | json }}</p> -->
 
   <form [formGroup]="form">
-    <div class="form-grouping">
+    <!-- <div class="form-grouping">
       <mat-form-field>
         <mat-label for="friend_code">Friend Code:</mat-label>
         <input
@@ -44,11 +44,13 @@
       </mat-form-field>
 
       <button mat-button id="change_buy_link">Change Link</button>
-    </div>
+    </div> -->
 
     <div class="form-grouping">
       <mat-checkbox formControlName="bumpable">Bumpable</mat-checkbox>
+    </div>
 
+    <div class="form-grouping">
       <mat-checkbox formControlName="bumpable">Buyable</mat-checkbox>
     </div>
 

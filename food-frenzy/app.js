@@ -14,6 +14,7 @@ app.use(cors());
 // app.use("/", express.static(path.join(__dirname, "/public/dist/Candidates")));
 
 app.use("/user", require("./routes/user.router"));
+app.use("/transaction", require("./routes/transaction.router"));
 // app.use("/stalker", require("./routes/stalker.router"));
 
 // Fixing error on refresh
